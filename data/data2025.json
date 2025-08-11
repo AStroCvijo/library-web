@@ -1,0 +1,806 @@
+{
+  "knjizare": {
+    "-4Xl0emov2q9hlZMVgiQ": {
+      "naziv": "Књижара Феникс",
+      "adresa": "Краља Петра 12, Београд, 11000",
+      "godinaOsnivanja": "1989",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/201611_Wangfujing_Bookstore_exterior.jpg/800px-201611_Wangfujing_Bookstore_exterior.jpg",
+      "kontaktTelefon": "041/779-316",
+      "email": "kontakt1@example.rs",
+      "knjige": "-fh68GYpivIX6PR5iyBu"
+    },
+    "-gu17NvLgF0rySmhZmzK": {
+      "naziv": "Папирус књиге",
+      "adresa": "Булевар Ослобођења 1, Нови Сад, 21000",
+      "godinaOsnivanja": "1980",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Exterior_of_Abbey%27s_bookshop_May_2023.jpg/800px-Exterior_of_Abbey%27s_bookshop_May_2023.jpg",
+      "kontaktTelefon": "068/519-610",
+      "email": "kontakt2@example.rs",
+      "knjige": "-LQVniL6Cnotal9vPnuf"
+    },
+    "-3mINx3uTZg8LpU66IVG": {
+      "naziv": "Читаоница 24/7",
+      "adresa": "Његошева 24, Ниш, 18000",
+      "godinaOsnivanja": "1997",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shakespeare_and_Company.JPG/800px-Shakespeare_and_Company.JPG",
+      "kontaktTelefon": "033/650-143",
+      "email": "kontakt3@example.rs",
+      "knjige": "-f65QJZRQ1yFQ9QTcokd"
+    },
+    "-xtbQkbtRSFPtjuahVKr": {
+      "naziv": "Букварница",
+      "adresa": "Цара Душана 45, Суботица, 24000",
+      "godinaOsnivanja": "1990",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Causeway_Bay_Bookstore_exterior.jpg/800px-Causeway_Bay_Bookstore_exterior.jpg",
+      "kontaktTelefon": "046/869-626",
+      "email": "kontakt4@example.rs",
+      "knjige": "-2LLPvLmxlDHibA4LOR4"
+    },
+    "-eIzGv24uvYytH2FuHBX": {
+      "naziv": "Либри",
+      "adresa": "Обала Краља Петра 8, Зрењанин, 23000",
+      "godinaOsnivanja": "1993",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/A_Room_Of_One%27s_Own_bookstore_exterior.jpg/800px-A_Room_Of_One%27s_Own_bookstore_exterior.jpg",
+      "kontaktTelefon": "061/896-674",
+      "email": "kontakt5@example.rs",
+      "knjige": "-CGGxnb9BjJ6fFdVL3vv"
+    },
+    "-RmLAJa2pcsthzOVl7fz": {
+      "naziv": "Прозор у књиге",
+      "adresa": "Господар Јевремова 14, Крагујевац, 34000",
+      "godinaOsnivanja": "1997",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/City_Books.jpg/800px-City_Books.jpg",
+      "kontaktTelefon": "061/576-240",
+      "email": "kontakt6@example.rs",
+      "knjige": "-POA3XXiJFvitDo0vJH8"
+    },
+    "-QnA8BRLIut43okWLG5j": {
+      "naziv": "Ностромо књиге",
+      "adresa": "Данила Киша 3, Нови Сад, 21000",
+      "godinaOsnivanja": "2007",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Book_City_Bookstore.jpg/640px-Book_City_Bookstore.jpg",
+      "kontaktTelefon": "056/333-296",
+      "email": "kontakt7@example.rs",
+      "knjige": "-2Kk7TSfkHf83BkGgguJ"
+    },
+    "-Az5DzH1csKQukVcMdbf": {
+      "naziv": "Гутенбергов угао",
+      "adresa": "Цара Лазара 17, Панчево, 26000",
+      "godinaOsnivanja": "1982",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Street_Bookshop_02.jpg/800px-Street_Bookshop_02.jpg",
+      "kontaktTelefon": "065/906-577",
+      "email": "kontakt8@example.rs",
+      "knjige": "-xgUy588gxY2lNUoi97m"
+    },
+    "-1kmZn40m2RDZIaMffy6": {
+      "naziv": "Књижара Аурора",
+      "adresa": "Трг Слободе 5, Сомбор, 25000",
+      "godinaOsnivanja": "1981",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Harry_Hartog_bookshop_at_SouthPoint_Tuggeranong_August_2023.jpg/800px-Harry_Hartog_bookshop_at_SouthPoint_Tuggeranong_August_2023.jpg",
+      "kontaktTelefon": "028/909-855",
+      "email": "kontakt9@example.rs",
+      "knjige": "-JEkFL93MKDpGhDTSTYH"
+    }
+  },
+  "knjige": {
+    "-fh68GYpivIX6PR5iyBu": {
+      "-Fa123GHjkLmnopqXYZ": {
+        "naziv": "Фауст",
+        "opis": "Гетеова трагедија у којој научник Фауст склапа пакт са ђаволом Мефистофелом ради неограниченог знања и световних ужитака, истражујући теме амбиције, искупљења и људског стања.",
+        "slike": [
+          "https://covers.openlibrary.org/b/isbn/9780553213485-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780140449013-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780691162294-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "Меки повез",
+        "cena": "1450",
+        "brojStrana": "512",
+        "autor": "Јохан Волфганг фон Гете"
+      },
+      "-URIAiSZRmMDk8ZuLFec": {
+        "naziv": "Одисеја",
+        "opis": "Епска поема која прати Одисејев десетогодишњи пут кући након Тројанског рата.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780140268867&printsec=frontcover&img=1",
+          "https://books.google.com/books/content?vid=ISBN9780140449112&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780140268867-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780486406541-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "Меки повез",
+        "cena": "1582",
+        "brojStrana": "683",
+        "autor": "Хомер"
+      },
+      "-fVHTTdZUPKcrf5fnxqB": {
+        "naziv": "Илијада",
+        "opis": "Епска прича о Ахилеју и опсади Троје, истражујући херојство, гнев и судбину.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780140275360&printsec=frontcover&img=1",
+          "https://books.google.com/books/content?vid=ISBN9780140445923&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780486408835-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780140275360-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "Меки повез",
+        "cena": "2909",
+        "brojStrana": "611",
+        "autor": "Хомер"
+      },
+      "-3HjDIisuIVhQDRcHxBn": {
+        "naziv": "Енеида",
+        "opis": "Латински еп који прати Енејину потрагу за оснивањем Рима након пада Троје.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780140449327&printsec=frontcover&img=1",
+          "https://books.google.com/books/content?vid=ISBN9780143105138&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780140449327-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780143105138-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "Меки повез",
+        "cena": "819",
+        "brojStrana": "509",
+        "autor": "Вергилије"
+      },
+      "-AkT2pByNCo0f4GrF4fg": {
+        "naziv": "Метаморфозе",
+        "opis": "Митолошка нарација која преплиће приче о трансформацији из грчких и римских легенди.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780253200013&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780140447897-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780140440584-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "еКњига",
+        "cena": "2303",
+        "brojStrana": "539",
+        "autor": "Овидије"
+      },
+      "-lHGtPvPilP98ZXntWPI": {
+        "naziv": "Божанствена комедија",
+        "opis": "Средњовековна алегорија о путовању душе кроз Пакао, Чистилиште и Рај.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780142437223&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780140448955-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9781435162068-L.jpg"
+        ],
+        "zanr": "Класика",
+        "format": "Аудио књига",
+        "cena": "957",
+        "brojStrana": "244",
+        "autor": "Данте Алигијери"
+      },
+      "-02ykGwhlL8zxZclK24f": {
+        "naziv": "Мислити, брзо и споро",
+        "opis": "Кључно дело које описује како два когнитивна система – брза интуиција и споро промишљање – обликују наше одлуке.",
+        "slike": [
+          "https://books.google.com/books/content?vid=ISBN9780374533557&printsec=frontcover&img=1",
+          "https://books.google.com/books/content?vid=ISBN9780374275631&printsec=frontcover&img=1",
+          "https://books.google.com/books/content?vid=ISBN9780141033570&printsec=frontcover&img=1",
+          "https://covers.openlibrary.org/b/isbn/9780374533557-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780374275631-L.jpg",
+          "https://covers.openlibrary.org/b/isbn/9780141033570-L.jpg"
+        ],
+        "zanr": "Психологија",
+        "format": "Меки повез",
+        "cena": "1198",
+        "brojStrana": "619",
+        "autor": "Данијел Канеман"
+      },
+
+      "-LQVniL6Cnotal9vPnuf": {
+        "-PPVHHV7DFVBLqWYdowt": {
+          "naziv": "Моби Дик",
+          "opis": "Опсесивни лов капетана Ахаба на белог кита истражује судбину, опсесију и природу.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780142437247&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780679783275-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Тврди повез",
+          "cena": "645",
+          "brojStrana": "171",
+          "autor": "Херман Мелвил"
+        },
+        "-TaIM5bQzr4jrqMPMjoN": {
+          "naziv": "Злочин и казна",
+          "opis": "Психолошки роман о кривици и искупљењу након што очајан студент почини убиство.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780143058144-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780553211757-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Аудио књига",
+          "cena": "3159",
+          "brojStrana": "464",
+          "autor": "Фјодор Достојевски"
+        },
+        "-CjDHDhKLAa5LwPFX81a": {
+          "naziv": "Рат и мир",
+          "opis": "Панорамска сага која преплиће животе руске аристократије са Наполеоновом инвазијом 1812.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9781400079988&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780199232765&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9781400079988-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780307266934-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Аудио књига",
+          "cena": "1791",
+          "brojStrana": "266",
+          "autor": "Лав Толстој"
+        },
+        "-jZ2OB6OjOMCGkXz2eBx": {
+          "naziv": "Држава",
+          "opis": "Филозофски дијалог који описује правду, идеалну државу и алегорију пећине.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780140455113&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780872201361&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780140455113-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780465094080-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Меки повез",
+          "cena": "778",
+          "brojStrana": "501",
+          "autor": "Платон"
+        },
+        "-yc2MznTRUF1Bk1hTZdz": {
+          "naziv": "Кнез",
+          "opis": "Ренесансни трактат о политичкој моћи и реалполитичком лидерству.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780141442259&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780226500430&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780226500447-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Аудио књига",
+          "cena": "2185",
+          "brojStrana": "386",
+          "autor": "Николо Макијавели"
+        },
+        "-f0xcdtlHgZXtVcQEp3Y": {
+          "naziv": "Сироти Чарлијев алманах",
+          "opis": "Збирка говора и мудрости потпредседника Berkshire Hathaway о инвестирању, доношењу одлука и животу.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781953953230-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781578643035-L.jpg"
+          ],
+          "zanr": "Бизнис",
+          "format": "еКњига",
+          "cena": "1388",
+          "brojStrana": "468",
+          "autor": "Чарли Мангер"
+        }
+      },
+      "-f65QJZRQ1yFQ9QTcokd": {
+        "-xfb6EzdoHy5dObW89Lx": {
+          "naziv": "1984",
+          "opis": "Дистопијска визија тоталитарног надзора, контроле мисли и отпора.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780451524935&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780547249643&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780547249643-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "Меки повез",
+          "cena": "2511",
+          "brojStrana": "440",
+          "autor": "Џорџ Орвел"
+        },
+        "-k9AbzSVVxSvSh2wqKIL": {
+          "naziv": "Дина",
+          "opis": "Епска научнофантастична сага о политици, екологији и пророчанству на пустињској планети Аракис.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780441172719&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780593099322&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780593099322-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780441013593-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "еКњига",
+          "cena": "927",
+          "brojStrana": "418",
+          "autor": "Френк Херберт"
+        },
+        "-4WCMkqn89y9hCIOxFKi": {
+          "naziv": "Задужбина",
+          "opis": "Циклус прича о математичару Харију Селдону и његовом плану за спас галактичке цивилизације.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780553293357&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780553293357-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780553382570-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "Меки повез",
+          "cena": "1073",
+          "brojStrana": "230",
+          "autor": "Ајзак Асимов"
+        },
+        "-JzYuRAxbzH8t0RQaVak": {
+          "naziv": "Дружина прстена",
+          "opis": "Први том Господара прстенова у којем један хобит носи опасан прстен.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780261102354&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780345339706-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780618002221-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780547928210-L.jpg"
+          ],
+          "zanr": "Фантазија",
+          "format": "Аудио књига",
+          "cena": "2049",
+          "brojStrana": "527",
+          "autor": "Џ. Р. Р. Толкин"
+        },
+        "-cJZs17ukrDtEvZ1jGO5": {
+          "naziv": "Елон Маск",
+          "opis": "Дефинитивна биографија која истражује Маскову револуцију у свемиру, аутомобилима и енергији — и контроверзе које је прате.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781982181284-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781398527492-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780062301239-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Тврди повез",
+          "cena": "3615",
+          "brojStrana": "590",
+          "autor": "Волтер Ајзаксон"
+        }
+      },
+      "-2LLPvLmxlDHibA4LOR4": {
+        "-EtahXlzUgfMmbSbQk6U": {
+          "naziv": "Две куле",
+          "opis": "Средњи том који прати распад дружине и надолазећи рат за Средњу Земљу.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780261102361&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780618346264-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780618002238-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780345339713-L.jpg"
+          ],
+          "zanr": "Фантазија",
+          "format": "Тврди повез",
+          "cena": "1323",
+          "brojStrana": "219",
+          "autor": "Џ. Р. Р. Толкин"
+        },
+        "-bKK3HrGvzxE5kA9T8h3": {
+          "naziv": "Повратак краља",
+          "opis": "Завршна борба против Саурона и потрага за уништењем Јединственог прстена.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780261102378&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780618002245-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780345339737-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780007203567-L.jpg"
+          ],
+          "zanr": "Фантазија",
+          "format": "Аудио књига",
+          "cena": "1826",
+          "brojStrana": "614",
+          "autor": "Џ. Р. Р. Толкин"
+        },
+        "-qwr1GBp9cIT3Pv4KghQ": {
+          "naziv": "Хобит",
+          "opis": "Авантуристичка прича о Билбу Багинсу и патуљцима у њиховој потрази за планинским домом.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780261103344&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780261103344-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780007525508-L.jpg"
+          ],
+          "zanr": "Фантазија",
+          "format": "Тврди повез",
+          "cena": "2788",
+          "brojStrana": "680",
+          "autor": "Џ. Р. Р. Толкин"
+        },
+        "-g5diyWCBc2JCnK2rx0J": {
+          "naziv": "Ендерова игра",
+          "opis": "Надарени дечак тренира кроз ратне игре како би одбранио Земљу од ванземаљске претње.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780812550702-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780765394866-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "еКњига",
+          "cena": "1613",
+          "brojStrana": "189",
+          "autor": "Орсон Скот Кард"
+        },
+        "-GmzrwwF42DW73JSsHLE": {
+          "naziv": "Стив Џобс",
+          "opis": "Бестселер биографија која приказује визију, креативност и бурни живот оснивача Apple-а.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781451648539-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781451648546-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Аудио књига",
+          "cena": "2003",
+          "brojStrana": "445",
+          "autor": "Волтер Ајзаксон"
+        }
+      },
+      "-CGGxnb9BjJ6fFdVL3vv": {
+        "-M9y18OggGJ0ni5ypq1e": {
+          "naziv": "Водич кроз галаксију за аутостопере",
+          "opis": "Космичка комедија која прати апсурдне авантуре Артура Дента након уништења Земље.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780307417138&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780345391803-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781400052929-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780345418913-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "Тврди повез",
+          "cena": "1769",
+          "brojStrana": "505",
+          "autor": "Даглас Адамс"
+        },
+        "-UTQffoOx9dbm1nPkojw": {
+          "naziv": "Фаренхајт 451",
+          "opis": "Ватогасац Гај Монтег устаје против будућности у којој се књиге спаљују ради потискивања идеја.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780006546061&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9781451673319-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781451673265-L.jpg"
+          ],
+          "zanr": "Научна фантастика",
+          "format": "еКњига",
+          "cena": "2889",
+          "brojStrana": "319",
+          "autor": "Реј Бредбери"
+        },
+        "-El8OD9jM9H0sYzvk0Ao": {
+          "naziv": "Тим ривала",
+          "opis": "Портрет лидерства Абрахама Линколна кроз уједињавање политичких противника у његовој влади.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780743270755-L.jpg"
+          ],
+          "zanr": "Историја",
+          "format": "Меки повез",
+          "cena": "1308",
+          "brojStrana": "362",
+          "autor": "Дорис Кернс Гудвин"
+        },
+        "-ranZsjubXj322v3wkKR": {
+          "naziv": "Оружје, клице и челик",
+          "opis": "Истражује географске и еколошке факторе који су обликовали светске разлике у моћи.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780393317558-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780393061314-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780393354324-L.jpg"
+          ],
+          "zanr": "Историја",
+          "format": "Аудио књига",
+          "cena": "1370",
+          "brojStrana": "274",
+          "autor": "Џаред Дајмонд"
+        },
+        "-bvRNszlJuEjsux2yOuy": {
+          "naziv": "Бенџамин Френклин: један амерички живот",
+          "opis": "Богат портрет проналазача и дипломате који је обликовао амерички идентитет кроз науку, политику и духовитост.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780743258074&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780743258074-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780684807614-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "еКњига",
+          "cena": "2038",
+          "brojStrana": "448",
+          "autor": "Волтер Ајзаксон"
+        }
+      },
+      "-POA3XXiJFvitDo0vJH8": {
+        "-q649JuTEYOr73ElybEp": {
+          "naziv": "Успон Теодора Рузвелта",
+          "opis": "Биографија која прати енергичан пут Рузвелта до председништва САД.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9781400069651&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780375756788-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780698107830-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781400069651-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Тврди повез",
+          "cena": "1645",
+          "brojStrana": "524",
+          "autor": "Едмунд Морис"
+        },
+        "-fbBxuniuZmQiQgIpwX2": {
+          "naziv": "Александар Хамилтон",
+          "opis": "Свеобухватан приказ живота првог министра финансија САД и једног од твораца устава.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780143034759&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780143034759-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781594200090-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Тврди повез",
+          "cena": "2035",
+          "brojStrana": "617",
+          "autor": "Рон Черноу"
+        },
+        "-b2PiI42B32FPinPgF6r": {
+          "naziv": "Уметност рата",
+          "opis": "Древни кинески трактат који нуди стратешку мудрост о ратовању и надметању.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780140439199&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9781599869773-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780140439199-L.jpg"
+          ],
+          "zanr": "Историја",
+          "format": "Аудио књига",
+          "cena": "1290",
+          "brojStrana": "538",
+          "autor": "Сун Цу"
+        },
+        "-OFlsw8vgxhW7YUgsWQH": {
+          "naziv": "Џингис Кан и стварање модерног света",
+          "opis": "Преиспитивање утицаја монголског владара на светску историју.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780609809648&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780609809648-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780609610626-L.jpg"
+          ],
+          "zanr": "Историја",
+          "format": "еКњига",
+          "cena": "1844",
+          "brojStrana": "127",
+          "autor": "Џек Везерфорд"
+        },
+        "-PJ6k8VPJynR98SZskvC": {
+          "naziv": "Ајнштајн: Његов живот и универзум",
+          "opis": "Биографска нарација која открива креативност, ексцентричност и теорију релативности добитника Нобелове награде.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9781416539322&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780743264747-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780743264730-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Аудио књига",
+          "cena": "1729",
+          "brojStrana": "659",
+          "autor": "Волтер Ајзаксон"
+        }
+      },
+      "-2Kk7TSfkHf83BkGgguJ": {
+        "-SvjzY48tcdBApL48qTk": {
+          "naziv": "Браћа Рајт",
+          "opis": "Причa о Вилбуру и Орвилу Рајту и њиховом изуму моторног лета.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781476728742-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781476728759-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "еКњига",
+          "cena": "775",
+          "brojStrana": "508",
+          "autor": "Дејвид Макалоу"
+        },
+        "-er5Yh9thg2Zydtn8aqe": {
+          "naziv": "Леонардо да Винчи",
+          "opis": "Биографија која открива генијалност и знатижељу ренесансног полимата.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781501139154-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781501139161-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781501139178-L.jpg"
+          ],
+          "zanr": "Биографија",
+          "format": "Аудио књига",
+          "cena": "952",
+          "brojStrana": "522",
+          "autor": "Волтер Ајзаксон"
+        },
+        "-BSfvqhCbmx1tIBLaULx": {
+          "naziv": "Вештачка интелигенција: Модеран приступ",
+          "opis": "Дефинитиван уџбеник који покрива теорију, методе и примене вештачке интелигенције.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780136042594-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780134610993-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780137903955-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Аудио књига",
+          "cena": "2283",
+          "brojStrana": "679",
+          "autor": "Стјуарт Расел и Питер Норвиг"
+        },
+        "-F2M4RGdYdPhHUpuZmrD": {
+          "naziv": "Дип Лернинг",
+          "opis": "Основни текст о дубоким неуронским мрежама и учењу репрезентација.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780262035613&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780262337373&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780262035613-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Меки повез",
+          "cena": "1031",
+          "brojStrana": "171",
+          "autor": "Ијан Гудфелоу, Јошуа Бенџио и Арон Курвил"
+        }
+      },
+      "-xgUy588gxY2lNUoi97m": {
+        "-n0k4CWEzAA2OvqvrQbj": {
+          "naziv": "Практично машинско учење са Scikit-Learn и TensorFlow",
+          "opis": "Практичан водич за изградњу ML система са Python библиотекама.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9781492032649-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781491962299-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Аудио књига",
+          "cena": "2195",
+          "brojStrana": "524",
+          "autor": "Орелјен Жерон"
+        },
+        "-juee88KeIHbMBHExv1w": {
+          "naziv": "Програмски језик C",
+          "opis": "Класичан приручник који уводи у језик C и структурно програмирање.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780131103627&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780131103627-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780131103702-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780131101630-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Тврди повез",
+          "cena": "3183",
+          "brojStrana": "627",
+          "autor": "Брајан В. Керниган и Денис М. Ричи"
+        },
+        "-0AeXHbcKQFZqmkulaGA": {
+          "naziv": "Чист код",
+          "opis": "Смернице за писање читљивог, одрживог и елегантног софтвера.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780132350884&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780136083238-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780136083252-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Тврди повез",
+          "cena": "2785",
+          "brojStrana": "637",
+          "autor": "Роберт Ц. Мартин"
+        },
+        "-YnTdnG1oYpt7NZrmYvp": {
+          "naziv": "Чиста архитектура",
+          "opis": "Принципи за дизајнирање робусних, раздвојених и тестабилних софтверских система.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780134494166-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780134494326-L.jpg"
+          ],
+          "zanr": "Технологија",
+          "format": "Меки повез",
+          "cena": "1072",
+          "brojStrana": "535",
+          "autor": "Роберт Ц. Мартин"
+        }
+      },
+      "-JEkFL93MKDpGhDTSTYH": {
+        "-zIrX7AXelmyfsEh9oyV": {
+          "naziv": "Убити подругљивца",
+          "opis": "Причa о одрастању која се суочава са расизмом на америчком југу кроз младост Скаут Финч.",
+          "slike": [
+            "https://covers.openlibrary.org/b/isbn/9780446310789-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780060935467-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg"
+          ],
+          "zanr": "Књижевност",
+          "format": "Тврди повез",
+          "cena": "1258",
+          "brojStrana": "662",
+          "autor": "Харпер Ли"
+        },
+        "-7JT0KN116X2oOtsZhO0": {
+          "naziv": "Слика Доријана Греја",
+          "opis": "Фаустовска прича о човеку који остаје млад док његов портрет стари.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780141439570&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780199535989&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9781515190998-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9781435171466-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780141439570-L.jpg"
+          ],
+          "zanr": "Књижевност",
+          "format": "Тврди повез",
+          "cena": "758",
+          "brojStrana": "334",
+          "autor": "Оскар Вајлд"
+        },
+        "-QrTyQ89dimU0gqzA31W": {
+          "naziv": "Скарлетно слово",
+          "opis": "Драма пуританског Бостона која истражује грех, кривицу и друштвену осуду.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780142437261&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780486280486&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780553210095&printsec=frontcover&img=1"
+          ],
+          "zanr": "Књижевност",
+          "format": "еКњига",
+          "cena": "2176",
+          "brojStrana": "677",
+          "autor": "Натанијел Хоторн"
+        },
+        "-HF18KcLouwmjtHwVvIg": {
+          "naziv": "Орестија",
+          "opis": "Грчка трагедија у три дела која хронише циклусе освете и рађање правде.",
+          "slike": [
+            "https://books.google.com/books/content?vid=ISBN9780140443332&printsec=frontcover&img=1",
+            "https://books.google.com/books/content?vid=ISBN9780195135923&printsec=frontcover&img=1",
+            "https://covers.openlibrary.org/b/isbn/9780393923285-L.jpg",
+            "https://covers.openlibrary.org/b/isbn/9780486292427-L.jpg"
+          ],
+          "zanr": "Класика",
+          "format": "Меки повез",
+          "cena": "1189",
+          "brojStrana": "324",
+          "autor": "Есхил"
+        }
+      }
+    }
+  },
+  "korisnici": {
+    "-MNQo55Aw0tLdwahMZMK": {
+      "korisnickoIme": "ana",
+      "lozinka": "ana123",
+      "ime": "Ана",
+      "prezime": "Анић",
+      "email": "ana@example.com",
+      "datumRodjenja": "1995-05-14",
+      "adresa": "Булевар патријарха Павла 23, Нови Сад, 21000",
+      "telefon": "061111111",
+      "zanimanje": "Студент"
+    },
+    "-MNQoCqEXydVTdCNV47C": {
+      "korisnickoIme": "marko",
+      "lozinka": "marko123",
+      "ime": "Марко",
+      "prezime": "Марић",
+      "email": "marko@example.com",
+      "datumRodjenja": "1993-11-02",
+      "adresa": "Пожешка 45, Београд, 11000",
+      "telefon": "062222222",
+      "zanimanje": "Програмер"
+    },
+    "-MNQoJw2p9rci4Rm_rYY": {
+      "korisnickoIme": "ivana",
+      "lozinka": "ivana123",
+      "ime": "Ивана",
+      "prezime": "Ивић",
+      "email": "ivana@example.com",
+      "datumRodjenja": "1998-07-30",
+      "adresa": "Цара Душана 12, Ниш, 18000",
+      "telefon": "063333333",
+      "zanimanje": "Дизајнер"
+    },
+    "-MNQoR-5erkWvcm8Hdnk": {
+      "korisnickoIme": "nikola",
+      "lozinka": "nikola123",
+      "ime": "Никола",
+      "prezime": "Николић",
+      "email": "nikola@example.com",
+      "datumRodjenja": "1989-02-19",
+      "adresa": "Змај Јовина 8, Зрењанин, 23000",
+      "telefon": "064444444",
+      "zanimanje": "Маркетинг"
+    },
+    "-MNQoWt_gDudX5W8TLQj": {
+      "korisnickoIme": "sofija",
+      "lozinka": "sofija123",
+      "ime": "Софија",
+      "prezime": "Симић",
+      "email": "sofija@example.com",
+      "datumRodjenja": "1996-12-09",
+      "adresa": "Трг Слободе 9, Крагујевац, 34000",
+      "telefon": "065555555",
+      "zanimanje": "Новинар"
+    }
+  }
+}
