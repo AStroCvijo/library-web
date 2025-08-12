@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libraries - Sve knjižare na jednom mestu</title>
+    <title>Knjige u knjižari - Libraries</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/bookstore.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="logo">
             <i class="fas fa-book"></i>
@@ -25,24 +25,17 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Pronađite svoju idealnu knjižaru</h1>
-        <p>Baza svih knjižara u Srbiji na jednom mestu</p>
-    </section>
-
-    <!-- Main Content -->
     <div class="container">
-        <h2 class="section-title">Knjižare u našem sistemu</h2>
-        <div id="knjizare-list" class="bookstores-container">
+        <div id="knjizara-info"></div>
+        <h2 class="section-title">Knjige u ovoj knjižari</h2>
+        <div id="knjige-container" class="bookstores-container">
             <div class="loading">
                 <i class="fas fa-spinner"></i>
-                Učitavam podatke o knjižarama...
+                Učitavam podatke o knjigama...
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer id="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -60,6 +53,6 @@
         </div>
     </footer>
 
-    <script type="module" src="scripts/homepage_load.js"></script>
+    <script type="module" src="scripts/bookstore_load.js"></script>
 </body>
 </html>
