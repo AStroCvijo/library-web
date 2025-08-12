@@ -19,8 +19,8 @@
                 <li><a href="index.html" class="active">Početna</a></li>
                 <li><a href="#footer">O nama</a></li>
                 <li><a href="#footer">Kontakt</a></li>
-                <li><a class="reg" href="#">Prijavi se</a></li>
-                <li><a class="reg" href="#">Registruj se</a></li>
+                <li><a class="reg" href="#" data-modal="login">Prijavi se</a></li>
+                <li><a class="reg" href="#" data-modal="register">Registruj se</a></li>
             </ul>
         </nav>
     </header>
@@ -60,6 +60,40 @@
         </div>
     </footer>
 
+    <!-- Login modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="loginModal">&times;</span>
+            <h2>Prijava</h2>
+            <form>
+                <input type="text" id="loginUsername" placeholder="Ime">
+                <input type="password" id="loginPassword" placeholder="Lozinka">
+                <button type="submit" class="btn-primary" onclick="login()">Prijavi se</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="registerModal">&times;</span>
+            <h2>Registracija</h2>
+            <form>
+                <input type="text" id="regIme" placeholder="Ime">
+                <input type="text" id="regPrezime" placeholder="Prezime">
+                <input type="text" id="regKorisnickoIme" placeholder="Korisničko ime">
+                <input type="password" id="regLozinka" placeholder="Lozinka">
+                <input type="email" id="regEmail" placeholder="Email">
+                <input type="text" id="regAdresa" placeholder="Adresa">
+                <input type="text" id="regTelefon" placeholder="Telefon">
+                <input type="date" id="regDatumRodjenja">
+                <input type="text" id="regZanimanje" placeholder="Zanimanje">
+                <button type="submit" class="btn-primary" onclick="register()">Registruj se</button>
+            </form>
+        </div>
+    </div>
+
     <script type="module" src="scripts/homepage_load.js"></script>
+    <script type="module" src="scripts/register.js"></script>
 </body>
 </html>
