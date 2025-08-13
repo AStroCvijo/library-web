@@ -129,11 +129,11 @@
 }
 
 .search-actions button#clearBooksSearch {
-    background-color: #e74c3c;
+    background-color: #3498db;
 }
 
 .search-actions button#clearBooksSearch:hover {
-    background-color: #c0392b;
+    background-color: #217dbb;
 }
 
 /* Highlight styles */

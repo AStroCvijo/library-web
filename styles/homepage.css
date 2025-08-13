@@ -318,8 +318,10 @@ footer {
         flex-direction: column;
         padding: 1rem;
     }
+    
 
     nav ul {
+        display: flex;
         margin: 1rem 0;
     }
 
@@ -337,6 +339,11 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .search-box{
+        display: flex;
+        flex-direction: column;
+    }
+
     nav ul {
         flex-direction: column;
         gap: 0.5rem;
@@ -345,6 +352,10 @@ footer {
 
     .hero {
         padding: 2rem 1rem;
+    }
+
+    nav ul li {
+        margin-top: 15px;
     }
 
     .section-title {
