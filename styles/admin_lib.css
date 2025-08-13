@@ -6,6 +6,18 @@
     margin-bottom: 2rem;
 }
 
+.admin-lib {
+    background-color: gold;
+}
+
+.admin-lib:hover {
+    background-color: gold;
+}
+
+.admin-usr:hover {
+    background-color: gold;
+}
+
 .bookstore-card {
     position: relative;
 }

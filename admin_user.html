@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knjige u knjižari - Libraries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/admin_lib.css">
+    <link rel="stylesheet" href="styles/admin_user.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-book"></i>
+            <span>Libraries</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Početna</a></li>
+                <li><a href="#footer">O nama</a></li>
+                <li><a href="#footer">Kontakt</a></li>
+                <li><a href="admin_lib.html" class="admin-lib">Pregled knjizara</a></li>
+                <li><a href="admin_user.html" class="admin-usr">Pregled korisnika</a></li>
+                <li><a class="reg" href="#" data-modal="login">Prijavi se</a></li>
+                <li><a class="reg" href="#" data-modal="register">Registruj se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="admin-header">
+            <h2 class="section-title">Upravljanje korisnicima</h2>
+            <button id="add-user-btn" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Dodaj novog korisnika
+            </button>
+        </div>
+        
+        <div id="users-list" class="users-container">
+            <div class="loading">
+                <i class="fas fa-spinner"></i>
+                Učitavam podatke o korisnicima...
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit User Modal -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="userModal">&times;</span>
+            <h2 id="modal-title">Dodaj novog korisnika</h2>
+            <form id="user-form">
+                <input type="hidden" id="user-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user-ime">Ime:</label>
+                        <input type="text" id="user-ime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-prezime">Prezime:</label>
+                        <input type="text" id="user-prezime" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user-username">Korisničko ime:</label>
+                        <input type="text" id="user-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">Email:</label>
+                        <input type="email" id="user-email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user-password">Lozinka:</label>
+                        <input type="password" id="user-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-phone">Telefon:</label>
+                        <input type="text" id="user-phone">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-address">Adresa:</label>
+                    <input type="text" id="user-address">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="user-birthdate">Datum rođenja:</label>
+                        <input type="date" id="user-birthdate">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-occupation">Zanimanje:</label>
+                        <input type="text" id="user-occupation">
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" data-close="userModal">Otkaži</button>
+                    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirmDialog" class="confirmation-dialog" style="display: none;">
+        <div class="confirmation-content">
+            <h3>Potvrda brisanja</h3>
+            <p>Da li ste sigurni da želite da obrišete ovog korisnika? Ova akcija se ne može poništiti.</p>
+            <div class="confirmation-buttons">
+                <button id="confirm-cancel" class="btn btn-cancel">Otkaži</button>
+                <button id="confirm-delete" class="btn btn-delete">Obriši</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="loginModal">&times;</span>
+            <h2>Prijava</h2>
+            <form>
+                <input type="text" id="loginUsername" placeholder="Ime">
+                <input type="password" id="loginPassword" placeholder="Lozinka">
+                <button type="submit" class="btn-primary" onclick="login()">Prijavi se</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="registerModal">&times;</span>
+            <h2>Registracija</h2>
+            <form>
+                <input type="text" id="regIme" placeholder="Ime">
+                <input type="text" id="regPrezime" placeholder="Prezime">
+                <input type="text" id="regKorisnickoIme" placeholder="Korisničko ime">
+                <input type="password" id="regLozinka" placeholder="Lozinka">
+                <input type="email" id="regEmail" placeholder="Email">
+                <input type="text" id="regAdresa" placeholder="Adresa">
+                <input type="text" id="regTelefon" placeholder="Telefon">
+                <input type="date" id="regDatumRodjenja">
+                <input type="text" id="regZanimanje" placeholder="Zanimanje">
+                <button type="submit" class="btn-primary" onclick="register()">Registruj se</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/admin_user.js"></script>
+    <script type="module" src="scripts/register.js"></script>
+</body>
+</html>
