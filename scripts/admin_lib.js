@@ -33,7 +33,6 @@ const confirmDeleteBtn = document.getElementById('confirm-delete');
 const confirmCancelBtn = document.getElementById('confirm-cancel');
 
 let currentKnjizaraId = null;
-let booksList = [];
 
 // Modal functionality
 function openModal() {
@@ -205,11 +204,3 @@ window.addEventListener('click', (e) => {
         confirmDialog.style.display = 'none';
     }
 });
-
-function addBook() {
-    // ...
-}
-
-function removeBook(bookId) {
-    // ...
-}
