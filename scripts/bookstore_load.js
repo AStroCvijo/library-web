@@ -20,6 +20,20 @@ const knjigeId = urlParams.get('id');
 
 const detaljiContainer = document.getElementById('knjizara-info');
 const knjigeContainer = document.getElementById('knjige-container');
+let allBooks = [];
+
+// Function to highlight search terms in text
+function highlightSearchTerm(text, searchTerm) {
+    if (!searchTerm || !text) return text;
+    
+    const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+    return text.toString().replace(regex, '<span class="highlight">$1</span>');
+}
+
+// Helper function to escape special regex characters
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 async function loadBookstoreDetails() {
     if (!knjigeId) {
@@ -51,8 +65,9 @@ async function loadBookstoreDetails() {
             // Load the books from this ID
             const knjigeRef = ref(db, `knjige/${knjigeId}`);
             onValue(knjigeRef, (booksSnapshot) => {
-                const booksData = booksSnapshot.val();
-                displayBooks(booksData, knjigeId);
+                allBooks = booksSnapshot.val();
+                displayBooks(allBooks);
+                setupSearch();
             }, (error) => {
                 console.error("Error loading books:", error);
                 knjigeContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju knjiga.</p>';
@@ -68,7 +83,81 @@ async function loadBookstoreDetails() {
     }
 }
 
-// Function for displaying the bookstore details
+function setupSearch() {
+    const searchTitleInput = document.getElementById('searchTitleInput');
+    const searchAuthorInput = document.getElementById('searchAuthorInput');
+    const searchGenreInput = document.getElementById('searchGenreInput');
+    const searchButton = document.getElementById('searchBooksButton');
+    const clearSearch = document.getElementById('clearBooksSearch');
+
+    searchButton.addEventListener('click', () => {
+        const searchTerms = {
+            title: searchTitleInput.value.trim(),
+            author: searchAuthorInput.value.trim(),
+            genre: searchGenreInput.value.trim()
+        };
+        filterBooks(searchTerms);
+        clearSearch.classList.toggle('hidden', !hasSearchTerms(searchTerms));
+    });
+
+    // Search on Enter key in any input field
+    [searchTitleInput, searchAuthorInput, searchGenreInput].forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerms = {
+                    title: searchTitleInput.value.trim(),
+                    author: searchAuthorInput.value.trim(),
+                    genre: searchGenreInput.value.trim()
+                };
+                filterBooks(searchTerms);
+                clearSearch.classList.toggle('hidden', !hasSearchTerms(searchTerms));
+            }
+        });
+    });
+
+    clearSearch.addEventListener('click', () => {
+        searchTitleInput.value = '';
+        searchAuthorInput.value = '';
+        searchGenreInput.value = '';
+        displayBooks(allBooks);
+        clearSearch.classList.add('hidden');
+    });
+}
+
+function hasSearchTerms(terms) {
+    return terms.title || terms.author || terms.genre;
+}
+
+function filterBooks(searchTerms) {
+    if (!hasSearchTerms(searchTerms)) {
+        displayBooks(allBooks);
+        return;
+    }
+
+    const filteredBooks = {};
+    const lowerTitle = searchTerms.title.toLowerCase();
+    const lowerAuthor = searchTerms.author.toLowerCase();
+    const lowerGenre = searchTerms.genre.toLowerCase();
+
+    for (const bookId in allBooks) {
+        const book = allBooks[bookId];
+        if (book && typeof book === 'object') {
+            const matchesTitle = !searchTerms.title || 
+                (book.naziv && book.naziv.toLowerCase().includes(lowerTitle));
+            const matchesAuthor = !searchTerms.author || 
+                (book.autor && book.autor.toLowerCase().includes(lowerAuthor));
+            const matchesGenre = !searchTerms.genre || 
+                (book.zanr && book.zanr.toLowerCase().includes(lowerGenre));
+
+            if (matchesTitle && matchesAuthor && matchesGenre) {
+                filteredBooks[bookId] = book;
+            }
+        }
+    }
+
+    displayBooks(filteredBooks, searchTerms);
+}
+
 function displayBookstoreDetails(knjizara) {
     detaljiContainer.innerHTML = `
         <div class="bookstore-details-header">
@@ -82,43 +171,39 @@ function displayBookstoreDetails(knjizara) {
     document.title = `${knjizara.naziv} - Libraries`;
 }
 
-// Function for displaying all the books
-function displayBooks(booksData, knjigeId) {
+function displayBooks(booksData, searchTerms = {}) {
     knjigeContainer.innerHTML = '';
 
-    if (!booksData) {
-        knjigeContainer.innerHTML = '<p class="no-data">Ova knjižara trenutno nema knjiga u ponudi.</p>';
+    if (!booksData || Object.keys(booksData).length === 0) {
+        knjigeContainer.innerHTML = hasSearchTerms(searchTerms || {}) 
+            ? '<p class="no-data">Nema rezultata za vašu pretragu.</p>'
+            : '<p class="no-data">Ova knjižara trenutno nema knjiga u ponudi.</p>';
         return;
     }
 
     for (const bookId in booksData) {
         const knjiga = booksData[bookId];
         if (knjiga && typeof knjiga === 'object') {
-            addBook(knjiga, bookId, knjigeId);
+            const card = document.createElement('div');
+            card.className = 'book-card';
+            card.innerHTML = `
+                <a href="book.html?id=${knjigeId}&book=${bookId}" class="book-link">
+                    <div class="card-image">
+                        <img src="${knjiga.slike?.[0] || 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" alt="${knjiga.naziv}">
+                    </div>
+                </a>
+                <div class="card-content">
+                    <h3>${highlightSearchTerm(knjiga.naziv, searchTerms.title)}</h3>
+                    <p><i class="fas fa-user"></i> ${highlightSearchTerm(knjiga.autor, searchTerms.author)}</p>
+                    <p><i class="fas fa-tags"></i> ${highlightSearchTerm(knjiga.zanr, searchTerms.genre)}</p>
+                    <p><i class="fas fa-money-bill-wave"></i> ${knjiga.cena} RSD</p>
+                    <p><i class="fas fa-book-open"></i> ${knjiga.brojStrana} strana</p>
+                    <p class="book-description">${knjiga.opis}</p>
+                </div>
+            `;
+            knjigeContainer.appendChild(card);
         }
     }
-}
-
-// Function for displaying a single book
-function addBook(knjiga, bookId) {
-    const card = document.createElement('div');
-    card.className = 'book-card';
-    card.innerHTML = `
-        <a href="book.html?id=${knjigeId}&book=${bookId}" class="book-link">
-            <div class="card-image">
-                <img src="${knjiga.slike?.[0] || 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" alt="${knjiga.naziv}">
-            </div>
-        </a>
-        <div class="card-content">
-            <h3>${knjiga.naziv}</h3>
-            <p><i class="fas fa-user"></i> ${knjiga.autor}</p>
-            <p><i class="fas fa-tags"></i> ${knjiga.zanr}</p>
-            <p><i class="fas fa-money-bill-wave"></i> ${knjiga.cena} RSD</p>
-            <p><i class="fas fa-book-open"></i> ${knjiga.brojStrana} strana</p>
-            <p class="book-description">${knjiga.opis}</p>
-        </div>
-    `;
-    knjigeContainer.appendChild(card);
 }
 
 document.addEventListener('DOMContentLoaded', loadBookstoreDetails);

@@ -28,6 +28,19 @@
 
     <div class="container">
         <div id="knjizara-info"></div>
+        <section class="search-section">
+            <div class="search-box">
+                <div class="search-filters">
+                    <input type="text" id="searchTitleInput" placeholder="Naziv knjige...">
+                    <input type="text" id="searchAuthorInput" placeholder="Autor...">
+                    <input type="text" id="searchGenreInput" placeholder="Žanr...">
+                </div>
+                <div class="search-actions">
+                    <button id="searchBooksButton"><i class="fas fa-search"></i> Pretraži</button>
+                    <button id="clearBooksSearch" class="hidden"><i class="fas fa-times"></i> Poništi pretragu</button>
+                </div>
+            </div>
+        </section>
         <h2 class="section-title">Knjige u ovoj knjižari</h2>
         <div id="knjige-container" class="bookstores-container">
             <div class="loading">
