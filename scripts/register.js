@@ -149,16 +149,6 @@ function login(event) {
                     el.style.display = 'none';
                 });
                 
-                // Prikaz korisničkog imena u headeru
-                const userNav = document.createElement('li');
-                userNav.innerHTML = `
-                    <div class="user-container">
-                        <a href="profile.html">${userData.ime} ${userData.prezime}</a>
-                        <button type="button" class="btn-primary" onclick="logout()">Odjavi se</button>
-                    </div>
-                `;
-                document.querySelector('nav ul').appendChild(userNav);
-                
                 closePopups();
                 document.querySelector('#loginModal form').reset();
                 
@@ -191,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Dodavanje linka ka profilu u navigaciji
         const userNav = document.createElement('li');
-        userNav.innerHTML = `<a href="profile.html">${userData.ime} ${userData.prezime}</a>`;
+        userNav.innerHTML = `<a href="profile.html?id=${userData.id}">${userData.ime} ${userData.prezime}</a>`;
         const logoutNav = document.createElement('li');
         logoutNav.innerHTML = `<a class="btn-logout" id="logout-btn">Odjavi se</a>`;
         document.querySelector('nav ul').appendChild(userNav);
