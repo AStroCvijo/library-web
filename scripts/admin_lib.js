@@ -69,6 +69,11 @@ knjizaraForm.addEventListener('submit', (e) => {
         godinaOsnivanja: document.getElementById('knjizara-godina').value,
         logo: document.getElementById('knjizara-logo').value || 'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'
     };
+
+    if (!knjizaraData.naziv || !knjizaraData.adresa || !knjizaraData.kontaktTelefon || !knjizaraData.email || !knjizaraData.knjige || !knjizaraData.godinaOsnivanja) {
+        alert("Molimo popunite sva polja!");
+        return;
+    }
     
     if (currentKnjizaraId) {
         // Update existing bookstore

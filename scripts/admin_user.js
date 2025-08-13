@@ -70,8 +70,12 @@ userForm.addEventListener('submit', (e) => {
         adresa: document.getElementById('user-address').value || '',
         datumRodjenja: document.getElementById('user-birthdate').value || '',
         zanimanje: document.getElementById('user-occupation').value || '',
-        tip: 'korisnik' // Default role
     };
+
+    if (!userData.ime || !userData.prezime || !userData.korisnickoIme || !userData.lozinka || !userData.email) {
+        alert("Molimo popunite sva polja!");
+        return;
+    }
     
     if (currentUserId) {
         // Update existing user
