@@ -22,7 +22,7 @@ const bookId = urlParams.get('book');
 const detaljiContainer = document.getElementById('knjizara-info');
 const bookContainer = document.getElementById('book-details-container');
 
-async function ucitajDetaljeKnjige() {
+async function loadBookDetails() {
     if (!knjigeId || !bookId) {
         bookContainer.innerHTML = '<p>Nije pronađena knjiga.</p>';
         return;
@@ -44,7 +44,7 @@ async function ucitajDetaljeKnjige() {
             }
 
             if (knjizaraInfo) {
-                prikaziDetaljeKnjizare(knjizaraInfo);
+                displayBookstoreDetails(knjizaraInfo);
             } else {
                 detaljiContainer.innerHTML = '<p>Knjižara nije pronađena.</p>';
             }
@@ -53,7 +53,7 @@ async function ucitajDetaljeKnjige() {
             const knjigaRef = ref(db, `knjige/${knjigeId}/${bookId}`);
             onValue(knjigaRef, (bookSnapshot) => {
                 const bookData = bookSnapshot.val();
-                prikaziKnjigu(bookData, knjizaraInfo);
+                displayBook(bookData, knjizaraInfo);
             }, (error) => {
                 console.error("Error loading book:", error);
                 bookContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju knjige.</p>';
@@ -69,8 +69,8 @@ async function ucitajDetaljeKnjige() {
     }
 }
 
-// Function for displazing the bookstore details
-function prikaziDetaljeKnjizare(knjizara) {
+// Function for displaying the bookstore details
+function displayBookstoreDetails(knjizara) {
     detaljiContainer.innerHTML = `
         <div class="bookstore-details-header">
             <h1>${knjizara.naziv}</h1>
@@ -83,7 +83,7 @@ function prikaziDetaljeKnjizare(knjizara) {
 }
 
 // Function for displaying the book
-function prikaziKnjigu(knjiga, knjizara) {
+function displayBook(knjiga, knjizara) {
     if (!knjiga) {
         bookContainer.innerHTML = '<p class="no-data">Knjiga nije pronađena.</p>';
         return;
@@ -151,4 +151,4 @@ window.changeMainImage = function(imageUrl) {
     }
 };
 
-document.addEventListener('DOMContentLoaded', ucitajDetaljeKnjige);
+document.addEventListener('DOMContentLoaded', loadBookDetails);

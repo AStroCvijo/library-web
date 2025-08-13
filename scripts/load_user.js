@@ -18,11 +18,11 @@ const userContainer = document.getElementById('user-container');
 let currentUser = null;
 let isEditMode = false;
 
-// Uzmi userId iz URL parametara
+// Get userId from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('id');
 
-function ucitajDetaljeKorisnika() {
+function loadUserDetails() {
     if (!userId) {
         userContainer.innerHTML = '<p class="error">Nije prosleđen ID korisnika u URL-u.</p>';
         return;
@@ -35,18 +35,18 @@ function ucitajDetaljeKorisnika() {
             const usersData = snapshot.val();
             let korisnik = null;
             
-            // Pronađi korisnika sa odgovarajućim ID-om
+            // Find user with matching ID
             for (const id in usersData) {
                 if (id === userId) {
                     korisnik = usersData[id];
-                    korisnik.id = id; // Dodajemo ID korisnika u objekat
+                    korisnik.id = id; // Add user ID to the object
                     break;
                 }
             }
 
             if (korisnik) {
                 currentUser = korisnik;
-                prikaziDetaljeKorisnika(korisnik);
+                displayUserDetails(korisnik);
             } else {
                 userContainer.innerHTML = '<p class="error">Korisnik nije pronađen.</p>';
             }
@@ -61,7 +61,7 @@ function ucitajDetaljeKorisnika() {
     }
 }
 
-function prikaziDetaljeKorisnika(korisnik) {
+function displayUserDetails(korisnik) {
     userContainer.innerHTML = `
         <div class="user-profile ${isEditMode ? 'edit-mode' : ''}">
             <div class="user-header">
@@ -131,23 +131,23 @@ function prikaziDetaljeKorisnika(korisnik) {
     
     document.title = `${korisnik.ime || 'Korisnik'} ${korisnik.prezime || ''} - Profil | Library`;
     
-    // Dodajemo event listenere za dugmad
+    // Add event listeners for buttons
     if (isEditMode) {
-        document.getElementById('saveBtn').addEventListener('click', sacuvajIzmene);
+        document.getElementById('saveBtn').addEventListener('click', saveChanges);
         document.getElementById('cancelBtn').addEventListener('click', () => {
             isEditMode = false;
-            prikaziDetaljeKorisnika(currentUser);
+            displayUserDetails(currentUser);
         });
     } else {
         document.getElementById('editBtn').addEventListener('click', () => {
             isEditMode = true;
-            prikaziDetaljeKorisnika(currentUser);
+            displayUserDetails(currentUser);
         });
-        document.getElementById('deleteBtn').addEventListener('click', prikaziPotvrduBrisanja);
+        document.getElementById('deleteBtn').addEventListener('click', showDeleteConfirmation);
     }
 }
 
-function sacuvajIzmene() {
+function saveChanges() {
     const inputs = document.querySelectorAll('.detail-input');
     const updatedData = {};
     
@@ -163,7 +163,7 @@ function sacuvajIzmene() {
                 alert('Podaci su uspešno ažurirani!');
                 isEditMode = false;
                 currentUser = {...currentUser, ...updatedData};
-                prikaziDetaljeKorisnika(currentUser);
+                displayUserDetails(currentUser);
             })
             .catch(error => {
                 console.error("Greška pri ažuriranju podataka:", error);
@@ -175,7 +175,7 @@ function sacuvajIzmene() {
     }
 }
 
-function prikaziPotvrduBrisanja() {
+function showDeleteConfirmation() {
     const dialog = document.createElement('div');
     dialog.className = 'confirmation-dialog';
     dialog.innerHTML = `
@@ -195,10 +195,10 @@ function prikaziPotvrduBrisanja() {
         document.body.removeChild(dialog);
     });
     
-    document.getElementById('confirmDeleteBtn').addEventListener('click', obrisiKorisnika);
+    document.getElementById('confirmDeleteBtn').addEventListener('click', deleteUser);
 }
 
-function obrisiKorisnika() {
+function deleteUser() {
     try {
         const userRef = ref(db, `korisnici/${currentUser.id}`);
         remove(userRef)
@@ -225,4 +225,4 @@ function obrisiKorisnika() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', ucitajDetaljeKorisnika);
+document.addEventListener('DOMContentLoaded', loadUserDetails);

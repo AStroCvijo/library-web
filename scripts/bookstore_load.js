@@ -21,7 +21,7 @@ const knjigeId = urlParams.get('id');
 const detaljiContainer = document.getElementById('knjizara-info');
 const knjigeContainer = document.getElementById('knjige-container');
 
-async function ucitajDetaljeKnjizare() {
+async function loadBookstoreDetails() {
     if (!knjigeId) {
         detaljiContainer.innerHTML = '<p>Nije pronađena knjižara.</p>';
         return;
@@ -43,7 +43,7 @@ async function ucitajDetaljeKnjizare() {
             }
 
             if (knjizaraInfo) {
-                prikaziDetaljeKnjizare(knjizaraInfo);
+                displayBookstoreDetails(knjizaraInfo);
             } else {
                 detaljiContainer.innerHTML = '<p>Knjižara nije pronađena.</p>';
             }
@@ -52,7 +52,7 @@ async function ucitajDetaljeKnjizare() {
             const knjigeRef = ref(db, `knjige/${knjigeId}`);
             onValue(knjigeRef, (booksSnapshot) => {
                 const booksData = booksSnapshot.val();
-                prikaziKnjige(booksData, knjigeId);
+                displayBooks(booksData, knjigeId);
             }, (error) => {
                 console.error("Error loading books:", error);
                 knjigeContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju knjiga.</p>';
@@ -69,7 +69,7 @@ async function ucitajDetaljeKnjizare() {
 }
 
 // Function for displaying the bookstore details
-function prikaziDetaljeKnjizare(knjizara) {
+function displayBookstoreDetails(knjizara) {
     detaljiContainer.innerHTML = `
         <div class="bookstore-details-header">
             <h1>${knjizara.naziv}</h1>
@@ -83,7 +83,7 @@ function prikaziDetaljeKnjizare(knjizara) {
 }
 
 // Function for displaying all the books
-function prikaziKnjige(booksData, knjigeId) {
+function displayBooks(booksData, knjigeId) {
     knjigeContainer.innerHTML = '';
 
     if (!booksData) {
@@ -94,13 +94,13 @@ function prikaziKnjige(booksData, knjigeId) {
     for (const bookId in booksData) {
         const knjiga = booksData[bookId];
         if (knjiga && typeof knjiga === 'object') {
-            dodajKnjigu(knjiga, bookId, knjigeId);
+            addBook(knjiga, bookId, knjigeId);
         }
     }
 }
 
 // Function for displaying a single book
-function dodajKnjigu(knjiga, bookId) {
+function addBook(knjiga, bookId) {
     const card = document.createElement('div');
     card.className = 'book-card';
     card.innerHTML = `
@@ -121,4 +121,4 @@ function dodajKnjigu(knjiga, bookId) {
     knjigeContainer.appendChild(card);
 }
 
-document.addEventListener('DOMContentLoaded', ucitajDetaljeKnjizare);
+document.addEventListener('DOMContentLoaded', loadBookstoreDetails);
