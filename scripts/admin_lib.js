@@ -31,7 +31,6 @@ const modalTitle = document.getElementById('modal-title');
 const confirmDialog = document.getElementById('confirmDialog');
 const confirmDeleteBtn = document.getElementById('confirm-delete');
 const confirmCancelBtn = document.getElementById('confirm-cancel');
-const logoutBtn = document.getElementById('logout-btn');
 
 let currentKnjizaraId = null;
 
@@ -111,7 +110,7 @@ onValue(knjizareRef, (snapshot) => {
         const card = document.createElement('div');
         card.className = 'bookstore-card';
         card.innerHTML = `
-            <a href="bookstore.html?id=${knjizara.knjige}" class="bookstore-link">
+            <a href="admin_book.html?id=${knjizara.knjige}" class="bookstore-link">
                 <div class="card-image">
                     <img src="${knjizara.logo}" alt="${knjizara.naziv}">
                 </div>
@@ -194,13 +193,6 @@ confirmDeleteBtn.addEventListener('click', () => {
                 alert('Došlo je do greške pri brisanju: ' + error.message);
             });
     }
-});
-
-// Logout functionality
-logoutBtn.addEventListener('click', () => {
-    // Here you would typically clear any session or auth state
-    // For now, just redirect to homepage
-    window.location.href = 'index.html';
 });
 
 // Close modal when clicking outside of it

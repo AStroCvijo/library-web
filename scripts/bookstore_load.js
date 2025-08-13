@@ -108,15 +108,15 @@ function dodajKnjigu(knjiga, bookId) {
             <div class="card-image">
                 <img src="${knjiga.slike?.[0] || 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" alt="${knjiga.naziv}">
             </div>
-            <div class="card-content">
-                <h3>${knjiga.naziv}</h3>
-                <p><i class="fas fa-user"></i> ${knjiga.autor}</p>
-                <p><i class="fas fa-tags"></i> ${knjiga.zanr}</p>
-                <p><i class="fas fa-money-bill-wave"></i> ${knjiga.cena} RSD</p>
-                <p><i class="fas fa-book-open"></i> ${knjiga.brojStrana} strana</p>
-                <p class="book-description">${knjiga.opis}</p>
-            </div>
         </a>
+        <div class="card-content">
+            <h3>${knjiga.naziv}</h3>
+            <p><i class="fas fa-user"></i> ${knjiga.autor}</p>
+            <p><i class="fas fa-tags"></i> ${knjiga.zanr}</p>
+            <p><i class="fas fa-money-bill-wave"></i> ${knjiga.cena} RSD</p>
+            <p><i class="fas fa-book-open"></i> ${knjiga.brojStrana} strana</p>
+            <p class="book-description">${knjiga.opis}</p>
+        </div>
     `;
     knjigeContainer.appendChild(card);
 }
