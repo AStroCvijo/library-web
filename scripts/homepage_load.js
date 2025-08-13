@@ -36,14 +36,14 @@ onValue(knjizareRef, (snapshot) => {
                 <div class="card-image">
                     <img src="${knjizara.logo || 'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" alt="${knjizara.naziv}">
                 </div>
-                <div class="card-content">
-                    <h3>${knjizara.naziv}</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ${knjizara.adresa}</p>
-                    <p><i class="fas fa-calendar-alt"></i> Godina osnivanja: ${knjizara.godinaOsnivanja}</p>
-                    <p><i class="fas fa-phone"></i> ${knjizara.kontaktTelefon}</p>
-                    <p><i class="fas fa-envelope"></i> ${knjizara.email}</p>
-                </div>
             </a>
+            <div class="card-content">
+                <h3>${knjizara.naziv}</h3>
+                <p><i class="fas fa-map-marker-alt"></i> ${knjizara.adresa}</p>
+                <p><i class="fas fa-calendar-alt"></i> Godina osnivanja: ${knjizara.godinaOsnivanja}</p>
+                <p><i class="fas fa-phone"></i> ${knjizara.kontaktTelefon}</p>
+                <p><i class="fas fa-envelope"></i> ${knjizara.email}</p>
+            </div>
         `;
         
         container.appendChild(card);

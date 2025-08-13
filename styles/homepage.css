@@ -78,6 +78,14 @@ nav a:hover, nav a.active {
     background-color: var(--secondary);
 }
 
+.admin {
+    background-color: darkgoldenrod;
+}
+
+.admin:hover {
+    background-color: gold;
+}
+
 /* Hero section */
 .hero {
     background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
