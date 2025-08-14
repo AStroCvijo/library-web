@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upravljanje knjigama - Libraries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/homepage.css">
+    <link rel="stylesheet" href="../styles/admin_book.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-book"></i>
+            <span>Libraries</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="#footer">O nama</a></li>
+                <li><a href="#footer">Kontakt</a></li>
+                <li><a href="admin_lib.html" class="admin-lib">Pregled knjizara</a></li>
+                <li><a href="admin_user.html" class="admin-usr">Pregled korisnika</a></li>
+                <li><a class="reg" href="#" data-modal="login">Prijavi se</a></li>
+                <li><a class="reg" href="#" data-modal="register">Registruj se</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="admin-header">
+            <h2 class="section-title">Upravljanje knjigama</h2>
+            <button id="add-knjiga-btn" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Dodaj novu knjigu
+            </button>
+        </div>
+        
+        <div id="knjige-list" class="books-container">
+            <div class="loading">
+                <i class="fas fa-spinner"></i>
+                Učitavam podatke o knjigama...
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>O nama</h3>
+                <p>Libraries je platforma koja objedinjuje sve knjižare u Srbiji na jednom mestu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Bulevar Oslobođenja 100, Novi Sad</p>
+                <p><i class="fas fa-phone"></i> +381 21 123 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Libraries</p>
+        </div>
+    </footer>
+
+    <!-- Add/Edit Book Modal -->
+    <div id="knjigaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="knjigaModal">&times;</span>
+            <h2 id="modal-title">Dodaj novu knjigu</h2>
+            <form id="knjiga-form">
+                <input type="hidden" id="knjiga-id">
+                <div class="form-group">
+                    <label for="knjiga-naziv">Naziv knjige:</label>
+                    <input type="text" id="knjiga-naziv">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-autor">Autor:</label>
+                    <input type="text" id="knjiga-autor">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-brojStrana">Broj strana:</label>
+                    <input type="number" id="knjiga-brojStrana">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-cena">Cena (RSD):</label>
+                    <input type="number" id="knjiga-cena">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-format">Format:</label>
+                    <input type="text" id="knjiga-format">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-opis">Opis:</label>
+                    <textarea id="knjiga-opis" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-zanr">Žanr:</label>
+                    <input type="text" id="knjiga-zanr">
+                </div>
+                <div class="form-group">
+                    <label for="knjiga-slika">URL slike:</label>
+                    <input type="url" id="knjiga-slika">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn btn-cancel" data-close="knjigaModal">Otkaži</button>
+                    <button type="submit" class="btn btn-primary">Sačuvaj</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirmDialog" class="confirmation-dialog" style="display: none;">
+        <div class="confirmation-content">
+            <h3>Potvrda brisanja</h3>
+            <p>Da li ste sigurni da želite da obrišete ovu knjigu? Ova akcija se ne može poništiti.</p>
+            <div class="confirmation-buttons">
+                <button id="confirm-cancel" class="btn btn-cancel">Otkaži</button>
+                <button id="confirm-delete" class="btn btn-delete">Obriši</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="loginModal">&times;</span>
+            <h2>Prijava</h2>
+            <form>
+                <input type="text" id="loginUsername" placeholder="Ime">
+                <input type="password" id="loginPassword" placeholder="Lozinka">
+                <button type="submit" class="btn-primary" onclick="login()">Prijavi se</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" data-close="registerModal">&times;</span>
+            <h2>Registracija</h2>
+            <form>
+                <input type="text" id="regIme" placeholder="Ime">
+                <input type="text" id="regPrezime" placeholder="Prezime">
+                <input type="text" id="regKorisnickoIme" placeholder="Korisničko ime">
+                <input type="password" id="regLozinka" placeholder="Lozinka">
+                <input type="email" id="regEmail" placeholder="Email">
+                <input type="text" id="regAdresa" placeholder="Adresa">
+                <input type="text" id="regTelefon" placeholder="Telefon">
+                <input type="date" id="regDatumRodjenja">
+                <input type="text" id="regZanimanje" placeholder="Zanimanje">
+                <button type="submit" class="btn-primary" onclick="register()">Registruj se</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/admin_book.js"></script>
+    <script type="module" src="../scripts/register.js"></script>
+</body>
+</html>
