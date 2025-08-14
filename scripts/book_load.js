@@ -19,6 +19,11 @@ const urlParams = new URLSearchParams(window.location.search);
 const knjigeId = urlParams.get('id');
 const bookId = urlParams.get('book');
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 const detaljiContainer = document.getElementById('knjizara-info');
 const bookContainer = document.getElementById('book-details-container');
 
@@ -56,16 +61,16 @@ async function loadBookDetails() {
                 displayBook(bookData, knjizaraInfo);
             }, (error) => {
                 console.error("Error loading book:", error);
-                bookContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju knjige.</p>';
+                redirectToErrorPage(error.message);
             });
         }, (error) => {
             console.error("Error loading bookstores:", error);
-            detaljiContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka o knjižari.</p>';
+            redirectToErrorPage(error.message);
         });
 
     } catch (error) {
         console.error("Greška pri učitavanju podataka: ", error);
-        bookContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka.</p>';
+        redirectToErrorPage(error.message);
     }
 }
 

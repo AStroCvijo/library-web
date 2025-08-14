@@ -11,6 +11,11 @@ const firebaseConfig = {
     appId: "1:646187899492:web:93dcb6d2f8190a09259d71"
 };
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
@@ -102,7 +107,7 @@ function register(event) {
             document.querySelector('#registerModal form').reset();
         }).catch((error) => {
             console.error("Greška prilikom registracije:", error);
-            alert("Došlo je do greške prilikom registracije. Pokušajte ponovo.");
+            redirectToErrorPage(error.message);
         });
     });
 }
@@ -162,7 +167,7 @@ function login(event) {
         }
     }).catch((error) => {
         console.error("Greška prilikom prijave:", error);
-        alert("Došlo je do greške prilikom prijave. Pokušajte ponovo.");
+        redirectToErrorPage(error.message);
     });
 }
 

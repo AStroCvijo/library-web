@@ -11,107 +11,160 @@ const firebaseConfig = {
     appId: "1:646187899492:web:93dcb6d2f8190a09259d71"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-const knjizareRef = ref(db, 'knjizare');
-let allBookstores = [];
-
-// Function to highlight search terms in text
-function highlightSearchTerm(text, searchTerm) {
-    if (!searchTerm) return text;
-    
-    const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
-    return text.replace(regex, '<span class="highlight">$1</span>');
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
 }
 
-// Helper function to escape special regex characters
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
+try {
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-// Function to display bookstores with optional search filtering
-function displayBookstores(bookstores, searchTerm = '') {
-    const container = document.getElementById('knjizare-list');
-    container.innerHTML = '';
+    const knjizareRef = ref(db, 'knjizare');
+    let allBookstores = [];
 
-    if (!bookstores || Object.keys(bookstores).length === 0) {
-        container.innerHTML = '<p class="no-data">Trenutno nema dostupnih knjižara.</p>';
-        return;
-    }
-
-    // Filter bookstores if search term exists
-    const filteredBookstores = searchTerm 
-        ? Object.fromEntries(
-            Object.entries(bookstores).filter(([_, knjizara]) => 
-                knjizara.naziv.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-          )
-        : bookstores;
-
-    if (Object.keys(filteredBookstores).length === 0) {
-        container.innerHTML = '<p class="no-data">Nema rezultata za vašu pretragu.</p>';
-        return;
-    }
-
-    // Display all or filtered bookstores
-    for (const id in filteredBookstores) {
-        const knjizara = filteredBookstores[id];
+    // Function to highlight search terms in text
+    function highlightSearchTerm(text, searchTerm) {
+        if (!searchTerm || !text) return text;
         
-        const card = document.createElement('div');
-        card.className = 'bookstore-card';
-        card.innerHTML = `
-            <a href="bookstore.html?id=${knjizara.knjige}" class="bookstore-link">
-                <div class="card-image">
-                    <img src="${knjizara.logo || 'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" alt="${knjizara.naziv}">
-                </div>
-            </a>
-            <div class="card-content">
-                <h3>${highlightSearchTerm(knjizara.naziv, searchTerm)}</h3>
-                <p><i class="fas fa-map-marker-alt"></i> ${knjizara.adresa}</p>
-                <p><i class="fas fa-calendar-alt"></i> Godina osnivanja: ${knjizara.godinaOsnivanja}</p>
-                <p><i class="fas fa-phone"></i> ${knjizara.kontaktTelefon}</p>
-                <p><i class="fas fa-envelope"></i> ${knjizara.email}</p>
-            </div>
-        `;
-        
-        container.appendChild(card);
+        const regex = new RegExp(`(${escapeRegExp(searchTerm)})`, 'gi');
+        return text.toString().replace(regex, '<span class="highlight">$1</span>');
     }
-}
 
-// Initialize the page
-document.addEventListener('DOMContentLoaded', () => {
-    // Load all bookstores initially
-    onValue(knjizareRef, (snapshot) => {
-        allBookstores = snapshot.val();
-        displayBookstores(allBookstores);
-    });
+    // Helper function to escape special regex characters
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
 
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const clearSearch = document.getElementById('clearSearch');
+    // Function to display bookstores with optional search filtering
+    function displayBookstores(bookstores, searchTerm = '') {
+        try {
+            const container = document.getElementById('knjizare-list');
+            if (!container) {
+                throw new Error('Container element not found');
+            }
+            
+            container.innerHTML = '';
 
-    // Perform search when button is clicked
-    searchButton.addEventListener('click', () => {
-        const searchTerm = searchInput.value.trim();
-        displayBookstores(allBookstores, searchTerm);
-        clearSearch.classList.toggle('hidden', !searchTerm);
-    });
+            if (!bookstores || Object.keys(bookstores).length === 0) {
+                container.innerHTML = '<p class="no-data">Trenutno nema dostupnih knjižara.</p>';
+                return;
+            }
 
-    // Perform search when Enter is pressed
-    searchInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            const searchTerm = searchInput.value.trim();
-            displayBookstores(allBookstores, searchTerm);
-            clearSearch.classList.toggle('hidden', !searchTerm);
+            // Filter bookstores if search term exists
+            const filteredBookstores = searchTerm 
+                ? Object.fromEntries(
+                    Object.entries(bookstores).filter(([_, knjizara]) => 
+                        knjizara?.naziv?.toLowerCase().includes(searchTerm.toLowerCase())
+                    )
+                  )
+                : bookstores;
+
+            if (Object.keys(filteredBookstores).length === 0) {
+                container.innerHTML = '<p class="no-data">Nema rezultata za vašu pretragu.</p>';
+                return;
+            }
+
+            // Display all or filtered bookstores
+            for (const id in filteredBookstores) {
+                const knjizara = filteredBookstores[id];
+                
+                const card = document.createElement('div');
+                card.className = 'bookstore-card';
+                card.innerHTML = `
+                    <a href="bookstore.html?id=${knjizara.knjige}" class="bookstore-link">
+                        <div class="card-image">
+                            <img src="${knjizara.logo || 'https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80'}" 
+                                 alt="${knjizara.naziv || 'Knjižara'}">
+                        </div>
+                    </a>
+                    <div class="card-content">
+                        <h3>${highlightSearchTerm(knjizara.naziv, searchTerm)}</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> ${knjizara.adresa || 'Nepoznata adresa'}</p>
+                        <p><i class="fas fa-calendar-alt"></i> Godina osnivanja: ${knjizara.godinaOsnivanja || 'Nepoznata'}</p>
+                        <p><i class="fas fa-phone"></i> ${knjizara.kontaktTelefon || 'Nepoznat telefon'}</p>
+                        <p><i class="fas fa-envelope"></i> ${knjizara.email || 'Nepoznat email'}</p>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            }
+        } catch (error) {
+            console.error("Greška pri prikazu knjižara:", error);
+        }
+    }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', () => {
+        try {
+            // Load all bookstores initially
+            onValue(knjizareRef, (snapshot) => {
+                try {
+                    allBookstores = snapshot.val();
+                    if (!allBookstores) {
+                        throw new Error('No bookstores data received');
+                    }
+                    displayBookstores(allBookstores);
+                } catch (error) {
+                    console.error("Greška pri obradi podataka knjižara:", error);
+                    redirectToErrorPage(error.message);
+                }
+            }, (error) => {
+                console.error("Greška pri učitavanju knjižara:", error);
+                redirectToErrorPage(error.message);
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const clearSearch = document.getElementById('clearSearch');
+
+            if (!searchInput || !searchButton || !clearSearch) {
+                throw new Error('Search elements not found');
+            }
+
+            // Perform search when button is clicked
+            searchButton.addEventListener('click', () => {
+                try {
+                    const searchTerm = searchInput.value.trim();
+                    displayBookstores(allBookstores, searchTerm);
+                    clearSearch.classList.toggle('hidden', !searchTerm);
+                } catch (error) {
+                    console.error("Greška pri pretrazi:", error);
+                }
+            });
+
+            // Perform search when Enter is pressed
+            searchInput.addEventListener('keypress', (e) => {
+                try {
+                    if (e.key === 'Enter') {
+                        const searchTerm = searchInput.value.trim();
+                        displayBookstores(allBookstores, searchTerm);
+                        clearSearch.classList.toggle('hidden', !searchTerm);
+                    }
+                } catch (error) {
+                    console.error("Greška pri pretrazi:", error);
+                }
+            });
+
+            // Clear search results
+            clearSearch.addEventListener('click', () => {
+                try {
+                    searchInput.value = '';
+                    displayBookstores(allBookstores);
+                    clearSearch.classList.add('hidden');
+                } catch (error) {
+                    console.error("Greška pri brisanju pretrage:", error);
+                }
+            });
+
+        } catch (error) {
+            console.error("Greška pri inicijalizaciji stranice:", error);
+           redirectToErrorPage(error.message);
         }
     });
 
-    // Clear search results
-    clearSearch.addEventListener('click', () => {
-        searchInput.value = '';
-        displayBookstores(allBookstores);
-        clearSearch.classList.add('hidden');
-    });
-});
+} catch (error) {
+    console.error("Fatalna greška u aplikaciji:", error);
+    redirectToErrorPage(error.message);
+}

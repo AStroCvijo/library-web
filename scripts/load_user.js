@@ -18,6 +18,11 @@ const userContainer = document.getElementById('user-container');
 let currentUser = null;
 let isEditMode = false;
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 // Get userId from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('id');
@@ -52,12 +57,12 @@ function loadUserDetails() {
             }
         }, (error) => {
             console.error("Greška pri učitavanju korisnika:", error);
-            userContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka o korisniku.</p>';
+            redirectToErrorPage(error.message);
         });
 
     } catch (error) {
         console.error("Greška pri učitavanju podataka: ", error);
-        userContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka.</p>';
+        redirectToErrorPage(error.message);
     }
 }
 
@@ -167,11 +172,11 @@ function saveChanges() {
             })
             .catch(error => {
                 console.error("Greška pri ažuriranju podataka:", error);
-                alert('Došlo je do greške prilikom ažuriranja podataka.');
+                redirectToErrorPage(error.message);
             });
     } catch (error) {
         console.error("Greška:", error);
-        alert('Došlo je do greške prilikom ažuriranja podataka.');
+        redirectToErrorPage(error.message);
     }
 }
 
@@ -212,11 +217,11 @@ function deleteUser() {
             })
             .catch(error => {
                 console.error("Greška pri brisanju korisnika:", error);
-                alert('Došlo je do greške prilikom brisanja korisnika.');
+                redirectToErrorPage(error.message);
             });
     } catch (error) {
         console.error("Greška:", error);
-        alert('Došlo je do greške prilikom brisanja korisnika.');
+        redirectToErrorPage(error.message);
     } finally {
         const dialog = document.querySelector('.confirmation-dialog');
         if (dialog) {

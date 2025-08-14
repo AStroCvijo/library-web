@@ -34,6 +34,11 @@ const confirmCancelBtn = document.getElementById('confirm-cancel');
 
 let currentKnjizaraId = null;
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 // Modal functionality
 function openModal() {
     knjizaraModal.style.display = 'block';
@@ -84,7 +89,7 @@ knjizaraForm.addEventListener('submit', (e) => {
                 closeModal();
             })
             .catch(error => {
-                alert('Došlo je do greške pri ažuriranju: ' + error.message);
+                redirectToErrorPage(error.message);
             });
     } else {
         // Add new bookstore
@@ -94,7 +99,7 @@ knjizaraForm.addEventListener('submit', (e) => {
                 closeModal();
             })
             .catch(error => {
-                alert('Došlo je do greške pri dodavanju: ' + error.message);
+                redirectToErrorPage(error.message);
             });
     }
 });

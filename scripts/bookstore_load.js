@@ -22,6 +22,11 @@ const detaljiContainer = document.getElementById('knjizara-info');
 const knjigeContainer = document.getElementById('knjige-container');
 let allBooks = [];
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 // Function to highlight search terms in text
 function highlightSearchTerm(text, searchTerm) {
     if (!searchTerm || !text) return text;
@@ -70,16 +75,16 @@ async function loadBookstoreDetails() {
                 setupSearch();
             }, (error) => {
                 console.error("Error loading books:", error);
-                knjigeContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju knjiga.</p>';
+                redirectToErrorPage(error.message);
             });
         }, (error) => {
             console.error("Error loading bookstores:", error);
-            detaljiContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka o knjižari.</p>';
+            redirectToErrorPage(error.message);
         });
 
     } catch (error) {
         console.error("Greška pri učitavanju podataka: ", error);
-        detaljiContainer.innerHTML = '<p class="error">Došlo je do greške pri učitavanju podataka.</p>';
+        redirectToErrorPage(error.message);
     }
 }
 

@@ -34,6 +34,11 @@ const confirmCancelBtn = document.getElementById('confirm-cancel');
 
 let currentUserId = null;
 
+// Function for redirecting to error page
+function redirectToErrorPage(errorCode) {
+    window.location.href = `error.html?message=${errorCode}`;
+}
+
 // Modal functionality
 function openModal() {
     userModal.style.display = 'block';
@@ -86,7 +91,7 @@ userForm.addEventListener('submit', (e) => {
                 closeModal();
             })
             .catch(error => {
-                alert('Došlo je do greške pri ažuriranju: ' + error.message);
+                redirectToErrorPage(error.message);
             });
     } else {
         // Add new user
@@ -96,7 +101,7 @@ userForm.addEventListener('submit', (e) => {
                 closeModal();
             })
             .catch(error => {
-                alert('Došlo je do greške pri dodavanju: ' + error.message);
+                redirectToErrorPage(error.message);
             });
     }
 });
