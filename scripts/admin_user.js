@@ -168,7 +168,7 @@ onValue(usersRef, (snapshot) => {
     });
 });
 
-// Edit user
+// Function for editing a user
 function editUser(id, user) {
     currentUserId = id;
     modalTitle.textContent = 'Izmeni korisnika';
@@ -213,7 +213,7 @@ confirmDeleteBtn.addEventListener('click', () => {
     }
 });
 
-// Close modal when clicking outside of it
+// Function for closing modal when clicking outside of it
 window.addEventListener('click', (e) => {
     if (e.target === userModal) {
         closeModal();

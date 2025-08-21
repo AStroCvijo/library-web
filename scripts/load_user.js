@@ -27,6 +27,7 @@ function redirectToErrorPage(errorCode) {
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get('id');
 
+// Function for loading user details
 function loadUserDetails() {
     if (!userId) {
         userContainer.innerHTML = '<p class="error">Nije prosleđen ID korisnika u URL-u.</p>';
@@ -66,6 +67,7 @@ function loadUserDetails() {
     }
 }
 
+// Function for displaying user details
 function displayUserDetails(korisnik) {
     userContainer.innerHTML = `
         <div class="user-profile ${isEditMode ? 'edit-mode' : ''}">
@@ -152,6 +154,7 @@ function displayUserDetails(korisnik) {
     }
 }
 
+// Function for saving changes
 function saveChanges() {
     const inputs = document.querySelectorAll('.detail-input');
     const updatedData = {};
@@ -180,6 +183,7 @@ function saveChanges() {
     }
 }
 
+// Function for showing delete confirmation window
 function showDeleteConfirmation() {
     const dialog = document.createElement('div');
     dialog.className = 'confirmation-dialog';
@@ -203,6 +207,7 @@ function showDeleteConfirmation() {
     document.getElementById('confirmDeleteBtn').addEventListener('click', deleteUser);
 }
 
+// Function for handling deleting a user
 function deleteUser() {
     try {
         const userRef = ref(db, `korisnici/${currentUser.id}`);

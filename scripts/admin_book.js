@@ -50,6 +50,7 @@ function openModal() {
     knjigaModal.style.display = 'block';
 }
 
+// Function for closing modal
 function closeModal() {
     knjigaModal.style.display = 'none';
     knjigaForm.reset();
@@ -67,7 +68,7 @@ addKnjigaBtn.addEventListener('click', () => {
     openModal();
 });
 
-// Form submission
+// Function for handling form submission
 knjigaForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -89,7 +90,6 @@ knjigaForm.addEventListener('submit', (e) => {
     }
     
     if (currentKnjigaId) {
-        // Update existing book - use the same path as for reading
         const knjigaRef = ref(db, `knjige/${bookstoreId}/${currentKnjigaId}`);
         set(knjigaRef, knjigaData)
             .then(() => {
@@ -114,7 +114,7 @@ knjigaForm.addEventListener('submit', (e) => {
     }
 });
 
-// Load books
+// Function for loading books
 onValue(knjigeRef, (snapshot) => {
     const data = snapshot.val();
     knjigeList.innerHTML = '';
@@ -172,7 +172,7 @@ onValue(knjigeRef, (snapshot) => {
     });
 });
 
-// Edit book
+// Function for editing a book
 function editKnjiga(id, knjiga) {
     currentKnjigaId = id;
     modalTitle.textContent = 'Izmeni knjigu';
@@ -190,7 +190,7 @@ function editKnjiga(id, knjiga) {
     openModal();
 }
 
-// Delete book confirmation
+// Function for showing delete book confirmation window
 function showDeleteConfirmation(id) {
     currentKnjigaId = id;
     confirmDialog.style.display = 'flex';

@@ -88,6 +88,7 @@ async function loadBookstoreDetails() {
     }
 }
 
+// Function to set up search functionality
 function setupSearch() {
     const searchTitleInput = document.getElementById('searchTitleInput');
     const searchAuthorInput = document.getElementById('searchAuthorInput');
@@ -129,10 +130,12 @@ function setupSearch() {
     });
 }
 
+// Function to check if there are search terms
 function hasSearchTerms(terms) {
     return terms.title || terms.author || terms.genre;
 }
 
+// Function to filter books based on search terms
 function filterBooks(searchTerms) {
     if (!hasSearchTerms(searchTerms)) {
         displayBooks(allBooks);
@@ -163,6 +166,7 @@ function filterBooks(searchTerms) {
     displayBooks(filteredBooks, searchTerms);
 }
 
+// Function to display bookstore details
 function displayBookstoreDetails(knjizara) {
     detaljiContainer.innerHTML = `
         <div class="bookstore-details-header">
@@ -176,6 +180,7 @@ function displayBookstoreDetails(knjizara) {
     document.title = `${knjizara.naziv} - Libraries`;
 }
 
+// Function to display books
 function displayBooks(booksData, searchTerms = {}) {
     knjigeContainer.innerHTML = '';
 

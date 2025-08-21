@@ -104,7 +104,7 @@ knjizaraForm.addEventListener('submit', (e) => {
     }
 });
 
-// Load bookstores
+// Function for loading bookstores
 onValue(knjizareRef, (snapshot) => {
     const data = snapshot.val();
     knjizareList.innerHTML = '';
@@ -162,7 +162,7 @@ onValue(knjizareRef, (snapshot) => {
     });
 });
 
-// Edit bookstore
+// Function for editing a bookstore
 function editKnjizara(id, knjizara) {
     currentKnjizaraId = id;
     modalTitle.textContent = 'Izmeni knjižaru';
@@ -179,7 +179,7 @@ function editKnjizara(id, knjizara) {
     openModal();
 }
 
-// Delete bookstore confirmation
+// Function for showing delete confirmation window
 function showDeleteConfirmation(id) {
     currentKnjizaraId = id;
     confirmDialog.style.display = 'flex';

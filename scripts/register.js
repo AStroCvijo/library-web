@@ -19,7 +19,7 @@ function redirectToErrorPage(errorCode) {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Otvaranje modalnih prozora
+// Function for opening modal windows
 document.querySelector('a[data-modal="login"]').addEventListener('click', (e) => {
     e.preventDefault();
     document.getElementById('loginModal').style.display = 'block';
@@ -30,28 +30,28 @@ document.querySelector('a[data-modal="register"]').addEventListener('click', (e)
     document.getElementById('registerModal').style.display = 'block';
 });
 
-// Zatvaranje preko X
+// Function for closing with X
 document.querySelectorAll('.close').forEach(btn => {
     btn.addEventListener('click', () => {
         document.getElementById(btn.dataset.close).style.display = 'none';
     });
 });
 
-// Klik van prozora zatvara
+// Function for closing the window when clicking outside
 window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) {
         e.target.style.display = 'none';
     }
 });
 
-// Zatvaranje svih modalnih prozora
+// Function for closing all modal windows
 function closePopups() {
     document.querySelectorAll('.modal').forEach(modal => {
         modal.style.display = 'none';
     });
 }
 
-// === Registracija ===
+// Function for handling the registration
 function register(event) {
     event.preventDefault();
     
@@ -70,7 +70,7 @@ function register(event) {
         return;
     }
 
-    // Provera da li korisničko ime već postoji
+    // Check if the username already exists
     const usersRef = ref(db, 'korisnici');
     get(usersRef).then((snapshot) => {
         let usernameExists = false;
@@ -89,7 +89,7 @@ function register(event) {
             return;
         }
 
-        // Ako korisničko ime ne postoji, registrujemo novog korisnika
+        // If the username doesnt already exist we add the new user
         const newUserRef = push(usersRef);
         set(newUserRef, {
             adresa: adresa,
@@ -112,7 +112,7 @@ function register(event) {
     });
 }
 
-// === Login ===
+// Function for handling the login
 function login(event) {
     event.preventDefault();
     
@@ -143,13 +143,13 @@ function login(event) {
             if (userFound) {
                 alert(`Uspešno ste se prijavili, ${userData.ime} ${userData.prezime}!`);
                 
-                // Čuvanje podataka o korisniku u localStorage
+                // Save the user info in localStorage
                 localStorage.setItem('currentUser', JSON.stringify({
                     id: userId,
                     ...userData
                 }));
                 
-                // Sakrivanje login/register linkova
+                // Hide login/register buttons
                 document.querySelectorAll('.reg').forEach(el => {
                     el.style.display = 'none';
                 });
@@ -157,7 +157,7 @@ function login(event) {
                 closePopups();
                 document.querySelector('#loginModal form').reset();
                 
-                // Osvježavanje stranice
+                // Refresh the page
                 window.location.reload();
             } else {
                 alert("Pogrešno korisničko ime ili lozinka!");
@@ -171,11 +171,11 @@ function login(event) {
     });
 }
 
-// Dodavanje event listenera za forme
+// Event listeners for forms
 document.querySelector('#loginModal form').addEventListener('submit', login);
 document.querySelector('#registerModal form').addEventListener('submit', register);
 
-// Provera da li je korisnik već prijavljen prilikom učitavanja stranice
+// Check if the user is already logged in when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
@@ -183,8 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.reg').forEach(el => {
             el.style.display = 'none';
         });
-        
-        // Dodavanje linka ka profilu u navigaciji
+
+        // Adding a link to the profile in the navigation
         const userNav = document.createElement('li');
         userNav.innerHTML = `<a href="profile.html?id=${userData.id}">${userData.ime} ${userData.prezime}</a>`;
         const logoutNav = document.createElement('li');
@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Function for handling the logout
 document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById("logout-btn");
     if (logoutBtn) {
